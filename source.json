@@ -1,0 +1,19 @@
+{
+  "name": "WeaselClub VRChat Packages",
+  "id": "packages.weasel-club.github.io",
+  "url": "https://weasel-club.github.io/packages/index.json",
+  "author": {
+    "name": "WeaselClub",
+    "url": "https://github.com/weasel-club"
+  },
+  "description": "Listing of VRChat packages by WeaselClub",
+  "infoLink": {
+    "url": "https://github.com/weasel-club",
+    "text": "View on GitHub"
+  },
+  "githubRepos": [
+    "weasel-club/OneClickInventory",
+    "weasel-club/urialbum-sdk",
+    "weasel-club/urialbum-sdk-beta"
+  ]
+}

@@ -4,7 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: main
-    paths: source.json
+    paths:
+      - source.json
+      - web/**
+      - .github/workflows/build-listing.yml
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -49,13 +52,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Build website
+        working-directory: web
+        run: bun install --frozen-lockfile && bun run build
+        env:
+          GITHUB_PAGES: "true"
+
+      - name: Copy listing index
+        run: cp ${{env.listPublishDirectory}}/index.json web/dist/index.json
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{env.listPublishDirectory}}
+          path: web/dist
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -53,13 +53,19 @@ export function App() {
   return (
     <main className="mx-auto flex min-h-svh w-full max-w-xl flex-col gap-6 px-4 py-8">
       <header className="flex justify-center">
-        <div className="grid size-56 place-items-center rounded-full bg-foreground dark:bg-transparent">
+        <a
+          href="https://goorm.me"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="goorm.me"
+          className="grid size-56 place-items-center rounded-full bg-foreground dark:bg-transparent"
+        >
           <img
             className="h-auto w-48"
             src={`${import.meta.env.BASE_URL}logo.png`}
             alt="Weasel Club"
           />
-        </div>
+        </a>
       </header>
 
       <section className="flex flex-col gap-3">
